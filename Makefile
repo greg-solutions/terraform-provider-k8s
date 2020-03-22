@@ -1,3 +1,5 @@
+NAME=terraform-provider-k8s
+
 .PHONY: build
 build:
-	go install -v
+	go build -o $(NAME) main.go
