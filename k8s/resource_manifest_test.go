@@ -3,6 +3,7 @@ package k8s
 import (
 	"fmt"
 	"github.com/hashicorp/terraform-provider-template/template"
+
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 	"testing"
@@ -52,10 +53,6 @@ func testDataSourceConfig() string {
 	return fmt.Sprintf(`
 data "template_file" "tiller_template" {
   template = "${file("../examples/manifests/tiller.yaml")}"
-
-  vars = {
-    replicas = "1"
-  }
 }
 
 resource "k8s_manifest" "tiller" {

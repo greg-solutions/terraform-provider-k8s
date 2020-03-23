@@ -12,6 +12,8 @@ import (
 	"log"
 )
 
+type rawYaml map[string]interface{}
+
 func GetRestClientFromYaml(yaml string, provider KubeProvider) (dynamic.ResourceInterface, *unstructured.Unstructured, error) {
 	// To make things play nice we need the JSON representation of the object as
 	// the `RawObj`
